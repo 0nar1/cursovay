@@ -77,10 +77,19 @@ class TeacherController extends Controller
         ]);
 
         $schedule = Schedule::with('group.students')->findOrFail($data['schedule_id']);
+        $attendanceMap = Attendance::query()
+            ->where('schedule_id', $schedule->id)
+            ->pluck('status', 'student_id');
+        $skipped = 0;
 
         foreach ($schedule->group->students as $student) {
             $gradeValue = $request->input('grade_'.$student->id);
             if ($gradeValue === null || $gradeValue === '') {
+                continue;
+            }
+
+            if (($attendanceMap[$student->id] ?? null) !== 'present') {
+                $skipped++;
                 continue;
             }
 
@@ -90,7 +99,12 @@ class TeacherController extends Controller
             );
         }
 
-        return back()->with('status', 'Оценки сохранены.');
+        $message = 'Оценки сохранены.';
+        if ($skipped > 0) {
+            $message .= " {$skipped} студент(ов) без отметки присутствия — оценка не выставлена.";
+        }
+
+        return back()->with('status', $message);
     }
 
     public function storeAttendance(Request $request): RedirectResponse

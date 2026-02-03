@@ -12,10 +12,12 @@ use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
-Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.index');
-Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
-Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::middleware('auth.notice')->group(function () {
+    Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.index');
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+    Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

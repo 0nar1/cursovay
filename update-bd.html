@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обновление BD.json</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>🔄 Обновление BD.json</h1>
+    <div id="status"></div>
+    
+    <button onclick="updateBD()">📝 Обновить BD.json</button>
+    <button onclick="downloadBD()">💾 Скачать BD.json</button>
+    <button onclick="loadFromLocalStorage()">📥 Загрузить из localStorage</button>
+
+    <script>
+        function showStatus(message, type = 'success') {
+            const status = document.getElementById('status');
+            status.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const data = localStorage.getItem('top-academy-db');
+                if (data) {
+                    const jsonData = JSON.parse(data);
+                    showStatus('✅ Данные загружены из localStorage');
+                    return jsonData;
+                } else {
+                    showStatus('❌ Нет данных в localStorage', 'error');
+                    return null;
+                }
+            } catch (e) {
+                showStatus('❌ Ошибка загрузки из localStorage: ' + e.message, 'error');
+                return null;
+            }
+        }
+
+        function downloadBD() {
+            const data = loadFromLocalStorage();
+            if (data) {
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'BD.json';
+                a.click();
+                URL.revokeObjectURL(url);
+                showStatus('✅ BD.json скачан');
+            }
+        }
+
+        async function updateBD() {
+            const data = loadFromLocalStorage();
+            if (!data) return;
+
+            try {
+                const response = await fetch('http://localhost:8001/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    showStatus('✅ BD.json обновлен через сервер');
+                } else {
+                    throw new Error('Сервер недоступен');
+                }
+            } catch (e) {
+                showStatus('⚠️ Сервер недоступен, используйте кнопку "Скачать BD.json" и замените файл вручную', 'error');
+            }
+        }
+
+        setInterval(() => {
+            const data = loadFromLocalStorage();
+            if (data) {
+                document.title = `🔄 BD.json (${new Date().toLocaleTimeString()})`;
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

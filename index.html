@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Компьютерная академия TOP — Информационная система</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-content">
+			<div class="brand">
+				<span class="brand-logo" aria-hidden="true">⬢</span>
+				<span class="brand-name">Академия TOP</span>
+			</div>
+			<nav class="nav" aria-label="Главная навигация">
+				<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Меню</button>
+				<ul id="nav-menu" class="nav-menu">
+					<li><a href="#/" data-link>Главная</a></li>
+					<li><a href="#/courses" data-link>Курсы</a></li>
+					<li><a href="#/schedule" data-link>Расписание</a></li>
+					<li><a href="#/account" data-link>Личный кабинет</a></li>
+					<li><a href="#/feedback" data-link>Обратная связь</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="app" class="container" tabindex="-1"></main>
+
+	<footer class="site-footer">
+		<div class="container footer-content">
+			<p>© <span id="year"></span> Академия TOP. Учебный прототип.</p>
+		</div>
+	</footer>
+
+	<script src="router.js" defer></script>
+	<script src="store.js" defer></script>
+	<script src="ui.js" defer></script>
+	<script src="app.js" defer></script>
+</body>
+</html>
+
+

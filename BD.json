@@ -1,0 +1,392 @@
+{
+  "departments": [],
+  "users": [
+    {
+      "id": "u-admin",
+      "name": "Администратор",
+      "email": "admin@top.local",
+      "role": "Администратор",
+      "password": "admin"
+    },
+    {
+      "id": "u-teacher1",
+      "name": "Анна Петрова",
+      "email": "teacher1@top.local",
+      "role": "Преподаватель",
+      "password": "teacher1"
+    },
+    {
+      "id": "u-teacher2",
+      "name": "Михаил Соколов",
+      "email": "teacher2@top.local",
+      "role": "Преподаватель",
+      "password": "teacher2"
+    },
+    {
+      "id": "u-teacher3",
+      "name": "Елена Волкова",
+      "email": "teacher3@top.local",
+      "role": "Преподаватель",
+      "password": "teacher3"
+    },
+    {
+      "id": "u-student1",
+      "name": "Алексей Иванов",
+      "email": "student1@top.local",
+      "role": "Студент",
+      "password": "student1",
+      "groups": [
+        "g-js-101"
+      ]
+    },
+    {
+      "id": "u-student2",
+      "name": "Мария Сидорова",
+      "email": "student2@top.local",
+      "role": "Студент",
+      "password": "student2",
+      "groups": [
+        "g-js-101"
+      ]
+    },
+    {
+      "id": "u-student3",
+      "name": "Дмитрий Козлов",
+      "email": "student3@top.local",
+      "role": "Студент",
+      "password": "student3",
+      "groups": [
+        "g-js-101"
+      ]
+    },
+    {
+      "id": "u-student4",
+      "name": "Анна Морозова",
+      "email": "student4@top.local",
+      "role": "Студент",
+      "password": "student4",
+      "groups": [
+        "g-js-101"
+      ]
+    },
+    {
+      "id": "u-student5",
+      "name": "Сергей Новиков",
+      "email": "student5@top.local",
+      "role": "Студент",
+      "password": "student5"
+    },
+    {
+      "id": "u-student6",
+      "name": "Ольга Федорова",
+      "email": "student6@top.local",
+      "role": "Студент",
+      "password": "student6"
+    },
+    {
+      "id": "u-student7",
+      "name": "Игорь Смирнов",
+      "email": "student7@top.local",
+      "role": "Студент",
+      "password": "student7"
+    },
+    {
+      "id": "u-student8",
+      "name": "Татьяна Кузнецова",
+      "email": "student8@top.local",
+      "role": "Студент",
+      "password": "student8"
+    },
+    {
+      "id": "u-student9",
+      "name": "Владимир Попов",
+      "email": "student9@top.local",
+      "role": "Студент",
+      "password": "student9"
+    },
+    {
+      "id": "83064332-1741-47ec-93ae-ff0c2f518518",
+      "name": "пппон",
+      "email": "goga02@mail.ru",
+      "role": "Студент",
+      "password": "123456"
+    }
+  ],
+  "courses": [
+    {
+      "id": "web-basics",
+      "title": "Основы веб-разработки",
+      "description": "Изучите HTML5, CSS3, адаптивную вёрстку и основы JavaScript за 2 месяца.",
+      "duration": "2 месяца",
+      "level": "начинающий"
+    },
+    {
+      "id": "js-pro",
+      "title": "JavaScript и современные фреймворки",
+      "description": "Глубокое погружение в ES6+, React, работу с API и сборку проектов.",
+      "duration": "3 месяца",
+      "level": "продвинутый"
+    },
+    {
+      "id": "ui-ux",
+      "title": "UI/UX-дизайн для начинающих",
+      "description": "Создание макетов, прототипирование, Figma, основы пользовательского опыта.",
+      "duration": "1.5 месяца",
+      "level": "начинающий"
+    },
+    {
+      "id": "python-basic",
+      "title": "Python для начинающих",
+      "description": "Основы программирования на Python, синтаксис, ООП, работа с файлами.",
+      "duration": "2 месяца",
+      "level": "начинающий"
+    },
+    {
+      "id": "data-science",
+      "title": "Анализ данных",
+      "description": "Pandas, NumPy, визуализация данных, машинное обучение.",
+      "duration": "4 месяца",
+      "level": "продвинутый"
+    }
+  ],
+  "groups": [
+    {
+      "id": "g-js-101",
+      "name": "JS-101",
+      "courseId": "web-basics",
+      "teacherId": "u-teacher1",
+      "description": "Группа JavaScript для начинающих"
+    },
+    {
+      "id": "g-js-201",
+      "name": "JS-201",
+      "courseId": "js-pro",
+      "teacherId": "u-teacher1",
+      "description": "Продвинутая группа JavaScript"
+    },
+    {
+      "id": "g-ui-101",
+      "name": "UI-101",
+      "courseId": "ui-ux",
+      "teacherId": "u-teacher2",
+      "description": "Группа UI/UX дизайна"
+    },
+    {
+      "id": "g-py-101",
+      "name": "PY-101",
+      "courseId": "python-basic",
+      "teacherId": "u-teacher2",
+      "description": "Группа Python для начинающих"
+    },
+    {
+      "id": "g-ds-201",
+      "name": "DS-201",
+      "courseId": "data-science",
+      "teacherId": "u-teacher3",
+      "description": "Группа анализа данных"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "sch-001",
+      "courseId": "web-basics",
+      "groupId": "g-js-101",
+      "weekday": "Пн",
+      "time": "18:00",
+      "room": "Ауд. 1"
+    },
+    {
+      "id": "sch-002",
+      "courseId": "web-basics",
+      "groupId": "g-js-101",
+      "weekday": "Ср",
+      "time": "18:00",
+      "room": "Ауд. 1"
+    },
+    {
+      "id": "sch-003",
+      "courseId": "js-pro",
+      "groupId": "g-js-201",
+      "weekday": "Пт",
+      "time": "19:00",
+      "room": "Ауд. 2"
+    },
+    {
+      "id": "sch-004",
+      "courseId": "ui-ux",
+      "groupId": "g-ui-101",
+      "weekday": "Вт",
+      "time": "17:00",
+      "room": "Ауд. 3"
+    },
+    {
+      "id": "sch-005",
+      "courseId": "ui-ux",
+      "groupId": "g-ui-101",
+      "weekday": "Чт",
+      "time": "17:00",
+      "room": "Ауд. 3"
+    },
+    {
+      "id": "sch-006",
+      "courseId": "python-basic",
+      "groupId": "g-py-101",
+      "weekday": "Пн",
+      "time": "19:30",
+      "room": "Ауд. 4"
+    },
+    {
+      "id": "sch-007",
+      "courseId": "python-basic",
+      "groupId": "g-py-101",
+      "weekday": "Ср",
+      "time": "19:30",
+      "room": "Ауд. 4"
+    },
+    {
+      "id": "sch-008",
+      "courseId": "data-science",
+      "groupId": "g-ds-201",
+      "weekday": "Вт",
+      "time": "18:30",
+      "room": "Ауд. 5"
+    },
+    {
+      "id": "sch-009",
+      "courseId": "data-science",
+      "groupId": "g-ds-201",
+      "weekday": "Чт",
+      "time": "18:30",
+      "room": "Ауд. 5"
+    },
+    {
+      "id": "sch-010",
+      "courseId": "js-pro",
+      "groupId": "g-js-201",
+      "weekday": "Сб",
+      "time": "10:00",
+      "room": "Ауд. 2"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "fb-001",
+      "name": "Мария К.",
+      "email": "maria.k@example.com",
+      "message": "Курс по вёрстке помог мне устроиться на первую работу! Спасибо!",
+      "timestamp": "2025-08-20 14:22"
+    }
+  ],
+  "user_groups": [
+    {
+      "id": "ug-1",
+      "userId": "u-student1",
+      "groupId": "g-js-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-2",
+      "userId": "u-student2",
+      "groupId": "g-js-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-3",
+      "userId": "u-student2",
+      "groupId": "g-ui-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-4",
+      "userId": "u-student3",
+      "groupId": "g-js-201",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-5",
+      "userId": "u-student4",
+      "groupId": "g-ui-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-6",
+      "userId": "u-student5",
+      "groupId": "g-py-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-7",
+      "userId": "u-student6",
+      "groupId": "g-py-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-8",
+      "userId": "u-student6",
+      "groupId": "g-ds-201",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-9",
+      "userId": "u-student7",
+      "groupId": "g-ds-201",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-10",
+      "userId": "u-student8",
+      "groupId": "g-js-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-11",
+      "userId": "u-student8",
+      "groupId": "g-ui-101",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-12",
+      "userId": "u-student9",
+      "groupId": "g-js-201",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-13",
+      "userId": "u-student9",
+      "groupId": "g-ds-201",
+      "roleInGroup": "student"
+    },
+    {
+      "id": "ug-14",
+      "userId": "u-teacher1",
+      "groupId": "g-js-101",
+      "roleInGroup": "teacher"
+    },
+    {
+      "id": "ug-15",
+      "userId": "u-teacher1",
+      "groupId": "g-js-201",
+      "roleInGroup": "teacher"
+    },
+    {
+      "id": "ug-16",
+      "userId": "u-teacher2",
+      "groupId": "g-ui-101",
+      "roleInGroup": "teacher"
+    },
+    {
+      "id": "ug-17",
+      "userId": "u-teacher2",
+      "groupId": "g-py-101",
+      "roleInGroup": "teacher"
+    },
+    {
+      "id": "ug-18",
+      "userId": "u-teacher3",
+      "groupId": "g-ds-201",
+      "roleInGroup": "teacher"
+    }
+  ],
+  "homework": [],
+  "grades": []
+}
